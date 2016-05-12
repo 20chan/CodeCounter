@@ -31,12 +31,12 @@
             this.tbRule = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lvResults = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cbSub = new System.Windows.Forms.CheckBox();
             this.tbDirectory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lbTotal = new System.Windows.Forms.Label();
             this.cbShowdirectory = new System.Windows.Forms.CheckBox();
             this.cbRules = new System.Windows.Forms.ComboBox();
@@ -49,14 +49,14 @@
             this.tbRule.Location = new System.Drawing.Point(12, 96);
             this.tbRule.Multiline = true;
             this.tbRule.Name = "tbRule";
-            this.tbRule.Size = new System.Drawing.Size(311, 187);
+            this.tbRule.Size = new System.Drawing.Size(347, 187);
             this.tbRule.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 289);
+            this.button1.Location = new System.Drawing.Point(12, 290);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(311, 27);
+            this.button1.Size = new System.Drawing.Size(347, 27);
             this.button1.TabIndex = 1;
             this.button1.Text = "탐색";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,12 +69,22 @@
             this.columnHeader2});
             this.lvResults.FullRowSelect = true;
             this.lvResults.GridLines = true;
-            this.lvResults.Location = new System.Drawing.Point(329, 42);
+            this.lvResults.Location = new System.Drawing.Point(365, 42);
             this.lvResults.Name = "lvResults";
-            this.lvResults.Size = new System.Drawing.Size(351, 241);
+            this.lvResults.Size = new System.Drawing.Size(383, 241);
             this.lvResults.TabIndex = 2;
             this.lvResults.UseCompatibleStateImageBehavior = false;
             this.lvResults.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "경로";
+            this.columnHeader1.Width = 296;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "줄";
+            this.columnHeader2.Width = 103;
             // 
             // cbSub
             // 
@@ -92,7 +102,7 @@
             // 
             this.tbDirectory.Location = new System.Drawing.Point(57, 13);
             this.tbDirectory.Name = "tbDirectory";
-            this.tbDirectory.Size = new System.Drawing.Size(185, 23);
+            this.tbDirectory.Size = new System.Drawing.Size(221, 23);
             this.tbDirectory.TabIndex = 4;
             // 
             // label1
@@ -106,7 +116,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(248, 12);
+            this.button2.Location = new System.Drawing.Point(284, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -114,22 +124,12 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "경로";
-            this.columnHeader1.Width = 215;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "줄";
-            this.columnHeader2.Width = 103;
-            // 
             // lbTotal
             // 
             this.lbTotal.Font = new System.Drawing.Font("맑은 고딕", 11F);
-            this.lbTotal.Location = new System.Drawing.Point(329, 289);
+            this.lbTotal.Location = new System.Drawing.Point(365, 289);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(351, 27);
+            this.lbTotal.Size = new System.Drawing.Size(383, 27);
             this.lbTotal.TabIndex = 7;
             this.lbTotal.Text = "검색 결과 없음";
             this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,7 +139,7 @@
             this.cbShowdirectory.AutoSize = true;
             this.cbShowdirectory.Checked = true;
             this.cbShowdirectory.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbShowdirectory.Location = new System.Drawing.Point(332, 15);
+            this.cbShowdirectory.Location = new System.Drawing.Point(365, 15);
             this.cbShowdirectory.Name = "cbShowdirectory";
             this.cbShowdirectory.Size = new System.Drawing.Size(102, 19);
             this.cbShowdirectory.TabIndex = 8;
@@ -158,7 +158,7 @@
             "Haskell"});
             this.cbRules.Location = new System.Drawing.Point(57, 67);
             this.cbRules.Name = "cbRules";
-            this.cbRules.Size = new System.Drawing.Size(266, 23);
+            this.cbRules.Size = new System.Drawing.Size(302, 23);
             this.cbRules.TabIndex = 9;
             this.cbRules.Text = "커스텀";
             this.cbRules.SelectedIndexChanged += new System.EventHandler(this.cbRules_SelectedIndexChanged);
@@ -172,15 +172,11 @@
             this.lbRule.TabIndex = 10;
             this.lbRule.Text = "규칙 : ";
             // 
-            // fbdDirectory
-            // 
-            this.fbdDirectory.HelpRequest += new System.EventHandler(this.fbdDirectory_HelpRequest);
-            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 328);
+            this.ClientSize = new System.Drawing.Size(760, 326);
             this.Controls.Add(this.lbRule);
             this.Controls.Add(this.cbRules);
             this.Controls.Add(this.cbShowdirectory);

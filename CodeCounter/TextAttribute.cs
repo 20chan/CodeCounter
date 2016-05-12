@@ -92,6 +92,28 @@ namespace CodeCounter
 
                 result = new TextAttribute(TextAttributeType.STARTSWITH, format.Substring(1));
             }
+            else if (format.StartsWith(":"))
+            {
+                if (!isCorrectFileName(format.Substring(1)))
+                {
+                    return false;
+                }
+
+                result = new TextAttribute(TextAttributeType.INCLUDE, format.Substring(1));
+            }
+            else if (format.StartsWith("?:"))
+            {
+                if (!isCorrectFileName(format.Substring(2)))
+                {
+                    return false;
+                }
+
+                result = new TextAttribute(TextAttributeType.EXCLUDE, format.Substring(2));
+            }
+            else
+            {
+                return false;
+            }
 
             attributes.Add(result);
             return true;
@@ -116,6 +138,11 @@ namespace CodeCounter
             }
 
             return true;
+        }
+
+        public static void Clear()
+        {
+            attributes = new List<TextAttribute>();
         }
     }
 }

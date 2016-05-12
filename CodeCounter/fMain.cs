@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace CodeCounter
 {
     public partial class fMain : Form
     {
+        readonly Size smallSize = new Size(776, 366);
+        readonly Size bigSize = new Size();
         public fMain()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace CodeCounter
 
         private void getLines()
         {
+            TextAttribute.Clear();
             foreach (string format in tbRule.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None))
             {
                 TextAttribute.FromFormat(format);
@@ -60,9 +64,18 @@ namespace CodeCounter
             GC.Collect();
         }
 
+        const string textFormat = "/.txt";
         const string cFormat = "/.c";
         const string cppFormat = "/.cpp";
         const string csharpFormat = "/.cs\r\n?/.Designer.cs\r\n?\\TemporaryGeneratedFile";
+        const string javaFormat = "/.java";
+        const string jsFormat = "/.js";
+        const string pythonFormat = "/.py";
+        const string rubyFormat = "/.rb";
+        const string luaFormat = "/.lua";
+        const string perlFormat = "/.pl";
+        const string vbFormat = "/.vb";
+        const string haskellFormat = "/.hs";
         private void cbShowdirectory_CheckedChanged(object sender, EventArgs e)
         {
             sortLinesToListview();
@@ -83,6 +96,9 @@ namespace CodeCounter
                 case 3: // C#
                     this.tbRule.Text = csharpFormat;
                     break;
+                case 4: // Haskell
+                    this.tbRule.Text = haskellFormat;
+                    break;
             }
         }
 
@@ -92,11 +108,6 @@ namespace CodeCounter
             {
                 this.tbDirectory.Text = fbdDirectory.SelectedPath;
             }
-        }
-
-        private void fbdDirectory_HelpRequest(object sender, EventArgs e)
-        {
-
         }
     }
 }
